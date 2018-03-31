@@ -1,0 +1,64 @@
+#####################################
+# JEC CLI TEMPLATE Project .gitignore
+# Please maintain alphabetical order!
+#####################################
+
+#####################################
+# Utilities
+#####################################
+
+# Ignore TypeScript temp file
+*tscommand*.*
+
+# Ignore TypeScript temp folder
+types/temp
+types/temp2
+
+#####################################
+# VSCE
+#####################################
+
+# Ignore VSCE folder
+.vscode
+
+#####################################
+# TSC
+#####################################
+
+# Ignore TSC cache folder 
+.tscache
+
+#####################################
+# Documentation
+#####################################
+
+# Ignore api-reference folder
+docs/api-reference
+
+#####################################
+# node_modules
+#####################################
+
+# Ignore 'node_modules' folder
+node_modules
+
+#####################################
+# src
+#####################################
+
+# Ignore JavaScript files in src folder
+src/**/*.js
+
+#####################################
+# test
+#####################################
+
+# Ignore JavaScript files in test folder
+test/**/*.js
+
+#####################################
+# utils
+#####################################
+
+# Ignore JavaScript files in utils folder
+utils/**/*.js

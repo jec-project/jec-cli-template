@@ -1,0 +1,44 @@
+{
+  "name": "jec-cli-template",
+  "version": "1.0.0",
+  "description": "JEC CLI TEMPLATE - A simple API that provides functionalities for creating JEC components from a Command Line Interface..",
+  "main": "dist/com/jec/cli/jec-cli-template-index",
+  "types": "types/jec-cli-template.d.ts",
+  "scripts": {
+    "test": "mocha --recursive"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/pechemann/jec-cli-template.git"
+  },
+  "keywords": [
+    "JEC",
+    "components",
+    "template",
+    "JavaScript",
+    "TypeScript",
+    "server",
+    "applications"
+  ],
+  "author": "Pascal ECHEMANN",
+  "license": "SEE LICENSE IN LICENSE",
+  "bugs": {
+    "url": "https://github.com/pechemann/jec-cli-template/issues"
+  },
+  "homepage": "https://github.com/pechemann/jec-cli-template#readme",
+  "dependencies": {},
+  "devDependencies": {
+    "@types/mocha": "^2.2.41",
+    "chai": "^3.5.0",
+    "chai-spies": "^0.7.1",
+    "grunt": "^1.0.1",
+    "grunt-contrib-clean": "^1.1.0",
+    "grunt-contrib-copy": "^1.0.0",
+    "grunt-mocha-test": "^0.13.2",
+    "grunt-ts": "^6.0.0-beta.17",
+    "grunt-typedoc": "^0.2.4",
+    "mocha": "^3.3.0",
+    "typedoc": "^0.8.0",
+    "typescript": "^2.6.2"
+  }
+}

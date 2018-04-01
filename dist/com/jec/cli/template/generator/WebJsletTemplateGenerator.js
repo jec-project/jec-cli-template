@@ -10,5 +10,9 @@ class WebJsletTemplateGenerator extends jec_cli_template_index_1.AbstractTemplat
         const template = new WebJsletTemplate_1.WebJsletTemplate();
         return template.getTemplate();
     }
+    clean(template) {
+        let result = this.cleanPattern(template, ",\n  template: [<% template %>]", "");
+        return result;
+    }
 }
 exports.WebJsletTemplateGenerator = WebJsletTemplateGenerator;

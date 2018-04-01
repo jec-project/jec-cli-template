@@ -11,7 +11,8 @@ import {HttpHeader} from "jec-commons";
  */
 @WebJslet({
   name: "<% name %>",
-  urlPatterns: [<% urlPatterns %>]
+  urlPatterns: [<% urlPatterns %>],
+  template: [<% template %>]
 })
 export class "<% name %> extends HttpJslet {
   

@@ -47,4 +47,13 @@ export class WebJsletTemplateGenerator extends AbstractTemplateGenerator
     const template:JecTemplate = new WebJsletTemplate();
     return template.getTemplate();
   }
+  
+  /**
+   * @inheritDoc
+   */
+  public clean(template:string):string {
+    let result:string = 
+             this.cleanPattern(template, ",\n  template: [<% template %>]", "");
+    return result;
+  }
 }

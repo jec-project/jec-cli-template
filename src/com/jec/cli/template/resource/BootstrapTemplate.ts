@@ -45,7 +45,10 @@ import {DomainContainer} from "jec-glasscat-core";
 /**
  * Runs frameworks initialization scripts.
  */
-@Bootstrap()
+@Bootstrap({
+  disabled: <% disabled %>,
+  index: <% index %>
+})
 export class <% name %> extends AbstractBootstrapScript {
 
   /**

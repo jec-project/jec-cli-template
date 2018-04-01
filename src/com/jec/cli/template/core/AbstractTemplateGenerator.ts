@@ -33,6 +33,28 @@ export abstract class AbstractTemplateGenerator implements TemplateGenerator {
   constructor() {}
 
   //////////////////////////////////////////////////////////////////////////////
+  // Protected methods
+  //////////////////////////////////////////////////////////////////////////////
+
+  /**
+   * Removes the specified search pattern from <code>template</code> and
+   * replaces it by the <code>replaceValue</code> parameter.
+   * 
+   * @param {string} template the template to clean.
+   * @param {string} pattern the pattern to find and replace.
+   * @param {string} replaceValue the value used for replacement.
+   * @return {string} the cleaned template.
+   */
+  protected cleanPattern(template:string, pattern:string,
+                                                   replaceValue:string):string {
+    let result:string = template;
+    if(result.indexOf(pattern) !== -1) {
+      result = result.replace(pattern, replaceValue);
+    };
+    return result;
+  }
+  
+  //////////////////////////////////////////////////////////////////////////////
   // Public methods
   //////////////////////////////////////////////////////////////////////////////
 

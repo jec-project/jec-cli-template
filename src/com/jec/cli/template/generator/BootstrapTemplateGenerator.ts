@@ -47,4 +47,16 @@ export class BootstrapTemplateGenerator extends AbstractTemplateGenerator
     const template:JecTemplate = new BootstrapTemplate();
     return template.getTemplate();
   }
+  
+  /**
+   * @inheritDoc
+   */
+  public clean(template:string):string {
+    const EMPTY_STRING:string = "";
+    let result:string = 
+     this.cleanPattern(template, "disabled: <% disabled %>,\n  ", EMPTY_STRING);
+    result = this.cleanPattern(result, "  index: <% index %>", EMPTY_STRING);
+    result = this.cleanPattern(result, "@Bootstrap({\n\n})", "@Bootstrap()");
+    return result;
+  }
 }

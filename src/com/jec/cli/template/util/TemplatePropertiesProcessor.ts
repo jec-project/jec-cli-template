@@ -32,7 +32,73 @@ export class TemplatePropertiesProcessor {
   /**
    * The reference to the pattern used to find custom properties in a template.
    */
-  private static readonly PROP_PATTERN:RegExp = /<%\s*.*?%>/ig;
+  private static readonly PROP_PATTERN:RegExp = /<%\s*.*?%>/gi;
+
+  /**
+   * The reference to the pattern used to find custom properties in a template.
+   */
+  private static readonly FUNCTION_PATTERN:RegExp = /-fn=[_a-zA-Z]*/gi;
+
+  //////////////////////////////////////////////////////////////////////////////
+  // Private methods
+  //////////////////////////////////////////////////////////////////////////////
+
+  /**
+   * Sanitizes the specified template and returns it, filled with the correct
+   * values, according to the specified template generator sanitizer list.
+   * 
+   * @param {string} template the template to sanitize.
+   * @param {string} input the placeholder that indicates the where to place
+   *                       computed values.
+   * @param {Map<string, any>} config the config map that contains properties
+   *                                  associated with the specified template.
+   * @param {Map<string, Function>} sanitizers an optional map of helper
+   *                                           functions used to properties.
+   */
+  private sanitize(template:string, input:string,
+                                    config:Map<string, any>,
+                                    sanitizers:Map<string, Function>):string {
+    const found:RegExpMatchArray =
+                      input.match(TemplatePropertiesProcessor.FUNCTION_PATTERN);
+    let innerInput:string = input.substring(2, input.length - 2).trim();
+    let result:string = template;
+    let value:string = null;
+    if(found) {
+      const sanitizerRef:string = found[0];
+      const sanitizer:Function = sanitizers.get(sanitizerRef.substr(4));
+      innerInput = innerInput.replace(sanitizerRef, "").trimRight();
+      if(config.has(innerInput)) {
+        value = sanitizer(config.get(innerInput));
+      }
+    } else {
+      if(config.has(innerInput)) {
+        value = config.get(innerInput);
+      }
+    }
+    if(value) {
+      result = result.replace(input, value);
+    }
+    return result;
+  }
+
+  /**
+   * Returns the specified template filled with the correct values, according to
+   * the specified configuration.
+   * 
+   * @param {string} template the template to fill.
+   * @param {string} input the placeholder that indicates the where to place
+   *                       computed values.
+   * @param {Map<string, any>} config the config map that contains properties
+   *                                  associated with the specified template.
+   */
+  private replace(template:string, input:string, config:any):string {
+    const innerInput:string = input.substring(2, input.length - 2).trim();
+    if(config.has(innerInput)) {
+      const value:string = config.get(innerInput) ;
+      template = template.replace(input, value);
+    }
+    return template;
+  }
 
   //////////////////////////////////////////////////////////////////////////////
   // Public methods
@@ -43,25 +109,24 @@ export class TemplatePropertiesProcessor {
    * them by the corresponding values defined in the config map.
    * 
    * @param {string} template the template file to process.
+   * @param {Map<string, any>} config the config map that contains properties
+   *                                  associated with the specified template.
+   * @param {Map<string, Function>} sanitizers an optional map of helper
+   *                                           functions used to properties.
    */
-  public resolve(template:string, config:Map<string, any>):string {
+  public resolve(template:string, config:Map<string, any>,
+                                  sanitizers:Map<string, Function>):string {
+    const hasSanitizers:boolean = sanitizers !== null;
     let result:string = template;
     let found:Array<any> = null;
-    let rawProp:string = null;
-    let prop:string = null;
-    let propLen:number = -1;
-    let propVal:any = null;
+    let input:string = null;
     while(
       (found = TemplatePropertiesProcessor.PROP_PATTERN.exec(result)) !== null
     ) {
-      
-      rawProp = found[0];
-      propLen = rawProp.length;
-      prop = rawProp.substring(2, propLen - 2).trim();
-      if(config.has(prop)) {
-        propVal = config.get(prop);
-        result = result.replace(rawProp, propVal);
-      }
+      input = found[0];
+      result = hasSanitizers ? 
+        this.sanitize(result, input, config, sanitizers) :
+        this.replace(result, input, config);
     }
     return result;
   }

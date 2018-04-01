@@ -17,7 +17,8 @@
 import {TemplateGenerator} from "../TemplateGenerator";
 import {WebJsletTemplate} from "../resource/WebJsletTemplate";
 import {JecTemplate} from "../JecTemplate";
-import {AbstractTemplateGenerator} from "../../jec-cli-template-index";
+import {AbstractTemplateGenerator} from "../core/AbstractTemplateGenerator";
+import {SanitizerUtils} from "../util/SanitizerUtils";
 
 /**
  * The template used to create bootstrap files.
@@ -34,6 +35,21 @@ export class WebJsletTemplateGenerator extends AbstractTemplateGenerator
    */
   constructor() {
     super();
+    this.initObj();
+  }
+
+  //////////////////////////////////////////////////////////////////////////////
+  // Private methods
+  //////////////////////////////////////////////////////////////////////////////
+
+  /**
+   * Initializes this object.
+   */
+  private initObj():void {
+    this._sanitizerMap = new Map<string, Function>();
+    this._sanitizerMap.set(
+      "sanitizeStringList", SanitizerUtils.sanitizeStringList
+    );
   }
 
   //////////////////////////////////////////////////////////////////////////////
@@ -53,7 +69,7 @@ export class WebJsletTemplateGenerator extends AbstractTemplateGenerator
    */
   public clean(template:string):string {
     let result:string = 
-             this.cleanPattern(template, ",\n  template: [<% template %>]", "");
+             this.cleanPattern(template, ',\n  template: "<% template %>"', "");
     return result;
   }
 }

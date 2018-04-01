@@ -7,14 +7,14 @@ class WebJsletTemplate {
 import {HttpHeader} from "jec-commons";
 
 /**
- * <% name %>: auto-generated jslet.
+ * <code><% name %></code>: auto-generated jslet.
  */
 @WebJslet({
   name: "<% name %>",
-  urlPatterns: [<% urlPatterns %>],
-  template: [<% template %>]
+  urlPatterns: [<% urlPatterns -fn=sanitizeStringList %>],
+  template: "<% template %>"
 })
-export class "<% name %> extends HttpJslet {
+export class <% name %> extends HttpJslet {
   
   /**
    * @inheritDoc

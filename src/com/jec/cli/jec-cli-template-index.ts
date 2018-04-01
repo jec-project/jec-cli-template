@@ -23,6 +23,7 @@ export {WebJsletTemplate} from "./template/resource/WebJsletTemplate";
 //--> com/jec/template/util
 export {FileWriter} from "./template/util/FileWriter";
 export {MapUtils} from "./template/util/MapUtils";
+export {SanitizerUtils} from "./template/util/SanitizerUtils";
 export {TemplateBuilder} from "./template/util/TemplateBuilder";
 export {TemplatePropertiesProcessor} from "./template/util/TemplatePropertiesProcessor";
 //--> com/jec/template

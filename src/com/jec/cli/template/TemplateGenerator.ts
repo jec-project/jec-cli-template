@@ -40,4 +40,10 @@ export interface TemplateGenerator {
    * @return {string} a string that represents a safe JEC component.
    */
   clean(template:string):string;
+
+  /**
+   * Returns a map that contains specific utility function for sanitizing some
+   * template properties.
+   */
+  getSanitizers():Map<string, Function>;
 }

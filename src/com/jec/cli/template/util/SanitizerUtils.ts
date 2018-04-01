@@ -20,43 +20,45 @@ import {TemplatePropertiesProcessor} from "../util/TemplatePropertiesProcessor";
 import {MapUtils} from "../util/MapUtils";
 
 /**
- * The <code>TemplateBuilder</code> allows to create JEC components from
- * predefined templates.
+ * The <code>SanitizerUtils</code> provides static methods used to sanitize JEC
+ * templates.
  */
-export class TemplateBuilder {
+export class SanitizerUtils {
 
   //////////////////////////////////////////////////////////////////////////////
-  // Constructor function
+  // Public properties
   //////////////////////////////////////////////////////////////////////////////
 
   /**
-   * Creates a new <code>TemplateBuilder</code> instance.
+   * The reference to an empty character.
    */
-  constructor() {}
+  public static readonly EMPTY_STRING:string = "";
+
+  /**
+   * The reference to the coma (<code>,</code>) character.
+   */
+  public static readonly COMA:string = ",";
 
   //////////////////////////////////////////////////////////////////////////////
   // Public methods
   //////////////////////////////////////////////////////////////////////////////
 
   /**
-   * Builds and returns a new JEC template by using the specified
-   * <code>TemplateGenerator<code> class reference and config object.
+   * Sanitizes the <code>input</code> as an array of strings.
    * 
-   * @param {any} generatorClass the <code>TemplateGenerator<code> class
-   *                             reference used to instanciate the template
-   *                             generator.
-   * @param {any} config the config object used to customize the template.
-   * @return {string} a string that represent a custom JEC component. 
+   * @param {string} input the string to sanitize.
+   * @return {string} a string that can be used as an array of strings. 
    */
-  public build(generatorClass:any, config:any):string {
-    const processor:TemplatePropertiesProcessor =
-                                              new TemplatePropertiesProcessor();
-    const mapConfig:Map<string, any> = MapUtils.objectToMap(config);
-    let generator:TemplateGenerator = new generatorClass();
-    let template:string = processor.resolve(
-      generator.generate(config), mapConfig, generator.getSanitizers()
-    );
-    template = generator.clean(template);
-    return template;
+  
+  public static sanitizeStringList(input:string):string {
+    const list:string[] = input.split(SanitizerUtils.COMA);
+    let result:string = SanitizerUtils.EMPTY_STRING;
+    let len:number = list.length;
+    let coma:string = SanitizerUtils.EMPTY_STRING;
+    while(len--) {
+      coma = len > 0 ? SanitizerUtils.COMA : SanitizerUtils.EMPTY_STRING;
+      result += `"${list[len].trim()}"${coma}`;
+    }
+    return result;
   }
 }

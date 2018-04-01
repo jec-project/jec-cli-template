@@ -8,7 +8,7 @@ class TemplateBuilder {
         const processor = new TemplatePropertiesProcessor_1.TemplatePropertiesProcessor();
         const mapConfig = MapUtils_1.MapUtils.objectToMap(config);
         let generator = new generatorClass();
-        let template = processor.resolve(generator.generate(config), mapConfig);
+        let template = processor.resolve(generator.generate(config), mapConfig, generator.getSanitizers());
         template = generator.clean(template);
         return template;
     }

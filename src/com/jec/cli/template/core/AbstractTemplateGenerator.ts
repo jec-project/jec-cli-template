@@ -33,6 +33,16 @@ export abstract class AbstractTemplateGenerator implements TemplateGenerator {
   constructor() {}
 
   //////////////////////////////////////////////////////////////////////////////
+  // Protected properties
+  //////////////////////////////////////////////////////////////////////////////
+
+  /**
+   * The map that contains all functions used to sanitize specifiec properties
+   * for tha associated template.
+   */
+  protected _sanitizerMap:Map<string, Function> = null;
+
+  //////////////////////////////////////////////////////////////////////////////
   // Protected methods
   //////////////////////////////////////////////////////////////////////////////
 
@@ -70,5 +80,12 @@ export abstract class AbstractTemplateGenerator implements TemplateGenerator {
    */
   public clean(template:string):string {
     return template;
+  }
+
+  /**
+   * @inheritDoc
+   */
+  public getSanitizers():Map<string, Function> {
+    return this._sanitizerMap;
   }
 }

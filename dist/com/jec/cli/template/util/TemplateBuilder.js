@@ -9,6 +9,7 @@ class TemplateBuilder {
         const mapConfig = MapUtils_1.MapUtils.objectToMap(config);
         let generator = new generatorClass();
         let template = processor.resolve(generator.generate(config), mapConfig);
+        template = generator.clean(template);
         return template;
     }
 }

@@ -3,7 +3,7 @@ Object.defineProperty(exports, "__esModule", { value: true });
 class BootstrapTemplate {
     constructor() { }
     getTemplate() {
-        let template = `import {AbstractBootstrapScript, Bootstrap } from "jec-commons";
+        let template = `import {AbstractBootstrapScript, Bootstrap} from "jec-commons";
 import {DomainContainer} from "jec-glasscat-core";
 
 /**

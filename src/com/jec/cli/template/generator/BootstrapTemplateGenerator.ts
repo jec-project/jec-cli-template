@@ -17,11 +17,13 @@
 import {TemplateGenerator} from "../TemplateGenerator";
 import {BootstrapTemplate} from "../resource/BootstrapTemplate";
 import {JecTemplate} from "../JecTemplate";
+import {AbstractTemplateGenerator} from "../../jec-cli-template-index";
 
 /**
  * The template used to create bootstrap files.
  */
-export class BootstrapTemplateGenerator implements TemplateGenerator {
+export class BootstrapTemplateGenerator extends AbstractTemplateGenerator
+                                        implements TemplateGenerator {
 
   //////////////////////////////////////////////////////////////////////////////
   // Constructor function
@@ -30,7 +32,9 @@ export class BootstrapTemplateGenerator implements TemplateGenerator {
   /**
    * Creates a new <code>BootstrapTemplateGenerator</code> instance.
    */
-  constructor() {}
+  constructor() {
+    super();
+  }
 
   //////////////////////////////////////////////////////////////////////////////
   // Public methods

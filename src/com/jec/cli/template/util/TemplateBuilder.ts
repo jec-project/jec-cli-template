@@ -56,6 +56,7 @@ export class TemplateBuilder {
     let template:string = processor.resolve(
       generator.generate(config), mapConfig
     );
+    template = generator.clean(template);
     return template;
   }
 }

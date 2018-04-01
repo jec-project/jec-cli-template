@@ -15,26 +15,22 @@
 //   limitations under the License.
 
 import {TemplateGenerator} from "../TemplateGenerator";
-import {WebJsletTemplate} from "../resource/WebJsletTemplate";
+import {BootstrapTemplate} from "../resource/BootstrapTemplate";
 import {JecTemplate} from "../JecTemplate";
-import {AbstractTemplateGenerator} from "../../jec-cli-template-index";
 
 /**
- * The template used to create bootstrap files.
+ * The abstract class for all <code>TemplateGenerator</code> implementations.
  */
-export class WebJsletTemplateGenerator extends AbstractTemplateGenerator
-                                       implements TemplateGenerator {
+export abstract class AbstractTemplateGenerator implements TemplateGenerator {
 
   //////////////////////////////////////////////////////////////////////////////
   // Constructor function
   //////////////////////////////////////////////////////////////////////////////
 
   /**
-   * Creates a new <code>WebJsletTemplateGenerator</code> instance.
+   * Creates a new <code>AbstractTemplateGenerator</code> instance.
    */
-  constructor() {
-    super();
-  }
+  constructor() {}
 
   //////////////////////////////////////////////////////////////////////////////
   // Public methods
@@ -44,7 +40,13 @@ export class WebJsletTemplateGenerator extends AbstractTemplateGenerator
    * @inheritDoc
    */
   public generate(config:any):string {
-    const template:JecTemplate = new WebJsletTemplate();
-    return template.getTemplate();
+    return null;
+  }
+  
+  /**
+   * @inheritDoc
+   */
+  public clean(template:string):string {
+    return template;
   }
 }

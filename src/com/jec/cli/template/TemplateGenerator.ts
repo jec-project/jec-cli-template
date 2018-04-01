@@ -31,4 +31,13 @@ export interface TemplateGenerator {
    *                  initialized with data fetched from the specified config.
    */
   generate(config:any):string;
+  
+  /**
+   * Removes optional unused property declarations and returns a string that
+   * represents a safe JEC component.
+   * 
+   * @param {string} template a string that represents JEC component to clean.
+   * @return {string} a string that represents a safe JEC component.
+   */
+  clean(template:string):string;
 }

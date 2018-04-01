@@ -14,37 +14,44 @@
 //   See the License for the specific language governing permissions and
 //   limitations under the License.
 
-import {TemplateGenerator} from "../TemplateGenerator";
-import {WebJsletTemplate} from "../resource/WebJsletTemplate";
-import {JecTemplate} from "../JecTemplate";
-import {AbstractTemplateGenerator} from "../../jec-cli-template-index";
+import {TemplateBuilder} from "./TemplateBuilder";
+import * as fs from "fs";
+import * as path from "path";
 
 /**
- * The template used to create bootstrap files.
+ * A helper class that provides methods for writting file built from JEC
+ * templates.
  */
-export class WebJsletTemplateGenerator extends AbstractTemplateGenerator
-                                       implements TemplateGenerator {
+export class FileWriter {
 
   //////////////////////////////////////////////////////////////////////////////
   // Constructor function
   //////////////////////////////////////////////////////////////////////////////
 
   /**
-   * Creates a new <code>WebJsletTemplateGenerator</code> instance.
+   * Creates a new <code>FileWriter</code> instance.
    */
-  constructor() {
-    super();
-  }
+  constructor() {}
 
   //////////////////////////////////////////////////////////////////////////////
   // Public methods
   //////////////////////////////////////////////////////////////////////////////
 
   /**
-   * @inheritDoc
+   * Writes a JEC component in a new file, depending on the specified options.
+   * 
+   * @param {any} generatorClass the reference to the
+   *                             <code>TemplateGenerator<code> class used to
+   *                             build the JEC component.
+   * @param {any} config the config object used to customize the JEC component.
+   * @param {Function} callback the callback method called once the .
    */
-  public generate(config:any):string {
-    const template:JecTemplate = new WebJsletTemplate();
-    return template.getTemplate();
+  public write(generatorClass:any, config:any, callback:Function):void {
+    const builder:TemplateBuilder = new TemplateBuilder();
+    const template:string = builder.build(generatorClass, config);
+    const name:string = config.name;
+    fs.writeFile(`${name}.ts`, template, (err:NodeJS.ErrnoException | null) => {
+      callback(err);
+    });
   }
 }

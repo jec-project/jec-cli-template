@@ -48,7 +48,7 @@ $ grunt test
 
 ### Wiki
 
-Complete documentation and tutorials are available on the TEMPLATE wiki at [https://github.com/pechemann/jec-cli-template/wiki](https://github.com/pechemann/jec-cli-template/wiki).
+Complete documentation and tutorials are available on the JRC wiki at [http://jecproject.org/wiki](http://jecproject.org/wiki).
 
 ### API Reference
 
@@ -88,5 +88,5 @@ See the License for the specific language governing permissions and
 limitations under the License.
 ```
 
-[jec-url]: https://jecproject.org
+[jec-url]: http://jecproject.org
 [jec-logo]: https://raw.githubusercontent.com/pechemann/JEC/master/assets/jec-logos/jec-logo.png

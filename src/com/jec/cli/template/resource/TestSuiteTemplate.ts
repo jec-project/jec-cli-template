@@ -14,27 +14,21 @@
 //   See the License for the specific language governing permissions and
 //   limitations under the License.
 
-import {TemplateGenerator} from "../TemplateGenerator";
-import {InterfaceTemplate} from "../resource/InterfaceTemplate";
 import {JecTemplate} from "../JecTemplate";
-import {AbstractTemplateGenerator} from "../core/AbstractTemplateGenerator";
 
 /**
- * The template used to create JEC interface files.
+ * The template used to create JEC test suite files.
  */
-export class InterfaceTemplateGenerator extends AbstractTemplateGenerator
-                                        implements TemplateGenerator {
+export class TestSuiteTemplate implements JecTemplate {
 
   //////////////////////////////////////////////////////////////////////////////
   // Constructor function
   //////////////////////////////////////////////////////////////////////////////
 
   /**
-   * Creates a new <code>InterfaceTemplateGenerator</code> instance.
+   * Creates a new <code>TestSuiteTemplate</code> instance.
    */
-  constructor() {
-    super();
-  }
+  constructor() {}
 
   //////////////////////////////////////////////////////////////////////////////
   // Public methods
@@ -43,15 +37,28 @@ export class InterfaceTemplateGenerator extends AbstractTemplateGenerator
   /**
    * @inheritDoc
    */
-  public generate(config:any):string {
-    const template:JecTemplate = new InterfaceTemplate();
-    return template.getTemplate();
+  public getTemplate():string {
+    let template:string = 
+`import { TestSuite, Test, Before, After, Async } from "jec-juta";
+import { <% className %> } from "<% relativeClassPath %>";
+
+@TestSuite({
+  description: "Test the <% className %> class methods"
+})
+export class <% name %> {
+
+  @Before()
+  public initTest():void {
+    // TODO Auto-generated test method stub
   }
-  
-  /**
-   * @inheritDoc
-   */
-  public clean(template:string):string {
-    return this.cleanPattern(template, "<% pkg %>.", "");
+
+  @After()
+  public resetTest():void {
+    // TODO Auto-generated test method stub
+  }
+  <% testMethods %>
+}
+`;
+    return template;
   }
 }

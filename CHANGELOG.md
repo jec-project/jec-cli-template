@@ -8,6 +8,7 @@
 ### Features
 
 - Adding template for JEC interfaces
+- Adding template for JEC test suites
 
 <a name="jec-cli-template-1.0.0"></a>
 ## **1.0.0** (2018-03-31)

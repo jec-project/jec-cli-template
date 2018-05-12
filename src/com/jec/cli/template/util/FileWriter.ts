@@ -44,7 +44,8 @@ export class FileWriter {
    *                             <code>TemplateGenerator<code> class used to
    *                             build the JEC component.
    * @param {any} config the config object used to customize the JEC component.
-   * @param {Function} callback the callback method called once the .
+   * @param {Function} callback the callback method called once the file is
+   *                            written.
    */
   public write(generatorClass:any, config:any, callback:Function):void {
     const builder:TemplateBuilder = new TemplateBuilder();

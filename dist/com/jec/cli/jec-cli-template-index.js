@@ -6,6 +6,8 @@ var BootstrapTemplateGenerator_1 = require("./template/generator/BootstrapTempla
 exports.BootstrapTemplateGenerator = BootstrapTemplateGenerator_1.BootstrapTemplateGenerator;
 var InterfaceTemplateGenerator_1 = require("./template/generator/InterfaceTemplateGenerator");
 exports.InterfaceTemplateGenerator = InterfaceTemplateGenerator_1.InterfaceTemplateGenerator;
+var TestSuiteTemplateGenerator_1 = require("./template/generator/TestSuiteTemplateGenerator");
+exports.TestSuiteTemplateGenerator = TestSuiteTemplateGenerator_1.TestSuiteTemplateGenerator;
 var WebJsletTemplateGenerator_1 = require("./template/generator/WebJsletTemplateGenerator");
 exports.WebJsletTemplateGenerator = WebJsletTemplateGenerator_1.WebJsletTemplateGenerator;
 ;
@@ -13,6 +15,8 @@ var BootstrapTemplate_1 = require("./template/resource/BootstrapTemplate");
 exports.BootstrapTemplate = BootstrapTemplate_1.BootstrapTemplate;
 var InterfaceTemplate_1 = require("./template/resource/InterfaceTemplate");
 exports.InterfaceTemplate = InterfaceTemplate_1.InterfaceTemplate;
+var TestSuiteTemplate_1 = require("./template/resource/TestSuiteTemplate");
+exports.TestSuiteTemplate = TestSuiteTemplate_1.TestSuiteTemplate;
 var WebJsletTemplate_1 = require("./template/resource/WebJsletTemplate");
 exports.WebJsletTemplate = WebJsletTemplate_1.WebJsletTemplate;
 var FileWriter_1 = require("./template/util/FileWriter");

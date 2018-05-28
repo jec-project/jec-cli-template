@@ -1,6 +1,6 @@
 {
   "name": "jec-cli-template",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "description": "JEC CLI TEMPLATE - A simple API that provides functionalities for creating JEC components from a Command Line Interface..",
   "main": "dist/com/jec/cli/jec-cli-template-index",
   "types": "types/jec-cli-template.d.ts",

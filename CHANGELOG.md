@@ -1,5 +1,14 @@
 # JEC CLI TEMPLATE Project: Update Release Notes
 
+<a name="jec-cli-template-1.0.2"></a>
+## **1.0.2** (2018-05-28)
+
+### Bug Fixes
+
+### Features
+
+- Adding template for JARS root paths
+
 <a name="jec-cli-template-1.0.1"></a>
 ## **1.0.1** (2018-05-09)
 

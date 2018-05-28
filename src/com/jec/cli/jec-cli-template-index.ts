@@ -16,12 +16,15 @@
 export {AbstractTemplateGenerator} from "./template/core/AbstractTemplateGenerator";
 //--> com/jec/template/generator
 export {BootstrapTemplateGenerator} from "./template/generator/BootstrapTemplateGenerator";
-export {InterfaceTemplateGenerator} from "./template/generator/InterfaceTemplateGenerator"
+export {InterfaceTemplateGenerator} from "./template/generator/InterfaceTemplateGenerator";
+export {RootPathTemplateGenerator} from "./template/generator/RootPathTemplateGenerator";
 export {TestSuiteTemplateGenerator} from "./template/generator/TestSuiteTemplateGenerator";
 export {WebJsletTemplateGenerator} from "./template/generator/WebJsletTemplateGenerator";
 ;//--> com/jec/template/resource
 export {BootstrapTemplate} from "./template/resource/BootstrapTemplate";
 export {InterfaceTemplate} from "./template/resource/InterfaceTemplate";
+export {ResourceTemplate} from "./template/resource/ResourceTemplate";
+export {RootPathTemplate} from "./template/resource/RootPathTemplate";
 export {TestSuiteTemplate} from "./template/resource/TestSuiteTemplate";
 export {WebJsletTemplate} from "./template/resource/WebJsletTemplate";
 //--> com/jec/template/util

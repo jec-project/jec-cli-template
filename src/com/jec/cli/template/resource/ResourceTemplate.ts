@@ -39,23 +39,22 @@ export class ResourceTemplate implements JecTemplate {
    */
   public getTemplate():string {
     let template:string = 
-`import {ResourcePath, GET, Exit} from "jec-jars";
+`import {ResourcePath, RootPathRefs, GET, Exit} from "jec-jars";
 
 /**
  * <code><% name %></code>: auto-generated resource.
  */
-@WebJslet({
-  path: "<% path %>",
-  produces: "<% produces %>"
-})
+@ResourcePath("<% path %>")
+@RootPathRefs([<% rootPathRefs -fn=sanitizeStringList %>])
+
+FIX(<% fix %>)
+
 export class <% name %> {
   
-  @GET()
-  public doGet(@Exit exit:Function):void {
+  GET()
+  public sampleEndPoint(@Exit exit:Function):void {
     // TODO Auto-generated method stub
-    const data:any = null;
-    const error:Error = null;
-    exit(data, error);
+    exit("<% path %> resource end point called");
   }
 }`;
     return template;

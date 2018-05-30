@@ -3,23 +3,22 @@ Object.defineProperty(exports, "__esModule", { value: true });
 class ResourceTemplate {
     constructor() { }
     getTemplate() {
-        let template = `import {ResourcePath, GET, Exit} from "jec-jars";
+        let template = `import {ResourcePath, RootPathRefs, GET, Exit} from "jec-jars";
 
 /**
  * <code><% name %></code>: auto-generated resource.
  */
-@WebJslet({
-  path: "<% path %>",
-  produces: "<% produces %>"
-})
+@ResourcePath("<% path %>")
+@RootPathRefs([<% rootPathRefs -fn=sanitizeStringList %>])
+
+FIX(<% fix %>)
+
 export class <% name %> {
   
-  @GET()
-  public doGet(@Exit exit:Function):void {
+  GET()
+  public sampleEndPoint(@Exit exit:Function):void {
     // TODO Auto-generated method stub
-    const data:any = null;
-    const error:Error = null;
-    exit(data, error);
+    exit("<% path %> resource end point called");
   }
 }`;
         return template;

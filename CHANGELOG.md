@@ -7,6 +7,7 @@
 
 ### Features
 
+- Adding template for JARS resources
 - Adding template for JARS root paths
 
 <a name="jec-cli-template-1.0.1"></a>

@@ -17,6 +17,7 @@ export {AbstractTemplateGenerator} from "./template/core/AbstractTemplateGenerat
 //--> com/jec/template/generator
 export {BootstrapTemplateGenerator} from "./template/generator/BootstrapTemplateGenerator";
 export {InterfaceTemplateGenerator} from "./template/generator/InterfaceTemplateGenerator";
+export {ResourceTemplateGenerator} from "./template/generator/ResourceTemplateGenerator";
 export {RootPathTemplateGenerator} from "./template/generator/RootPathTemplateGenerator";
 export {TestSuiteTemplateGenerator} from "./template/generator/TestSuiteTemplateGenerator";
 export {WebJsletTemplateGenerator} from "./template/generator/WebJsletTemplateGenerator";

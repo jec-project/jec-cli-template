@@ -15,7 +15,7 @@ FIX(<% fix %>)
 
 export class <% name %> {
   
-  GET()
+  @GET()
   public sampleEndPoint(@Exit exit:Function):void {
     // TODO Auto-generated method stub
     exit("<% path %> resource end point called");

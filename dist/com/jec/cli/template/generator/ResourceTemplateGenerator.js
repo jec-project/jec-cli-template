@@ -6,6 +6,7 @@ const SanitizerUtils_1 = require("../util/SanitizerUtils");
 class ResourceTemplateGenerator extends AbstractTemplateGenerator_1.AbstractTemplateGenerator {
     constructor() {
         super();
+        this.ROOTPATHREFS_DECORATOR = "@RootPathRefs";
         this.initObj();
     }
     initObj() {
@@ -18,8 +19,11 @@ class ResourceTemplateGenerator extends AbstractTemplateGenerator_1.AbstractTemp
     }
     clean(template) {
         const EMPTY = "";
-        let result = this.cleanPattern(template, '\n@RootPathRefs([<% refs -fn=sanitizeStringList %>])', EMPTY);
-        result = this.cleanPattern(template, '\nFIX(<% fix %>)\n\n', EMPTY);
+        let result = this.cleanPattern(template, '\n@RootPathRefs\(\[<% rootPathRefs -fn=sanitizeStringList %>\]\)', EMPTY);
+        result = this.cleanPattern(result, '\nFIX(<% fix %>)\n\n', EMPTY);
+        if (result.indexOf(this.ROOTPATHREFS_DECORATOR) === -1) {
+            result = this.cleanPattern(result, 'RootPathRefs, ', EMPTY);
+        }
         return result;
     }
 }

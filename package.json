@@ -1,6 +1,6 @@
 {
   "name": "jec-cli-template",
-  "version": "1.0.2",
+  "version": "1.0.3",
   "description": "JEC CLI TEMPLATE - A simple API that provides functionalities for creating JEC components from a Command Line Interface..",
   "main": "dist/com/jec/cli/jec-cli-template-index",
   "types": "types/jec-cli-template.d.ts",
@@ -28,17 +28,17 @@
   "homepage": "https://github.com/jec-project/jec-cli-template#readme",
   "dependencies": {},
   "devDependencies": {
-    "@types/mocha": "^2.2.41",
-    "chai": "^3.5.0",
-    "chai-spies": "^0.7.1",
-    "grunt": "^1.0.1",
+    "@types/mocha": "^5.2.1",
+    "chai": "^4.1.2",
+    "chai-spies": "^1.0.0",
+    "grunt": "^1.0.3",
     "grunt-contrib-clean": "^1.1.0",
     "grunt-contrib-copy": "^1.0.0",
     "grunt-mocha-test": "^0.13.2",
     "grunt-ts": "^6.0.0-beta.17",
     "grunt-typedoc": "^0.2.4",
-    "mocha": "^3.3.0",
-    "typedoc": "^0.8.0",
-    "typescript": "^2.6.2"
+    "mocha": "^5.2.0",
+    "typedoc": "^0.11.1",
+    "typescript": "^2.9.1"
   }
 }

@@ -1,5 +1,15 @@
 # JEC CLI TEMPLATE Project: Update Release Notes
 
+<a name="jec-cli-template-1.0.3"></a>
+## **1.0.3** (2018-06-09)
+
+### Bug Fixes
+
+- Upgrading dependencies to solve security vulnerabilities
+- Fixing sanitizer of the ResourceTemplateGenerator class
+
+### Features
+
 <a name="jec-cli-template-1.0.2"></a>
 ## **1.0.2** (2018-05-28)
 

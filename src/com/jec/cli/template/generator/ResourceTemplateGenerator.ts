@@ -39,6 +39,15 @@ export class ResourceTemplateGenerator extends AbstractTemplateGenerator
   }
 
   //////////////////////////////////////////////////////////////////////////////
+  // Private properties
+  //////////////////////////////////////////////////////////////////////////////
+
+  /**
+   * A reference to the <code>@RootPathRefs</code> decorator string.
+   */
+  private readonly ROOTPATHREFS_DECORATOR:string = "@RootPathRefs";
+
+  //////////////////////////////////////////////////////////////////////////////
   // Private methods
   //////////////////////////////////////////////////////////////////////////////
 
@@ -71,10 +80,13 @@ export class ResourceTemplateGenerator extends AbstractTemplateGenerator
     const EMPTY:string = "";
     let result:string = this.cleanPattern(
       template, 
-      '\n@RootPathRefs([<% refs -fn=sanitizeStringList %>])', 
+      '\n@RootPathRefs\(\[<% rootPathRefs -fn=sanitizeStringList %>\]\)', 
       EMPTY
     );
-    result = this.cleanPattern(template, '\nFIX(<% fix %>)\n\n', EMPTY);
+    result = this.cleanPattern(result, '\nFIX(<% fix %>)\n\n', EMPTY);
+    if(result.indexOf(this.ROOTPATHREFS_DECORATOR) === -1) {
+      result = this.cleanPattern(result, 'RootPathRefs, ', EMPTY);
+    }
     return result;
   }
 }

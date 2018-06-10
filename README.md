@@ -65,7 +65,7 @@ The documentation generator is [TypeDoc](http://typedoc.org/)
 
 ## Update Release Notes
 
-**Current stable release:** [1.0.2](CHANGELOG.md#jec-cli-template-1.0.2)
+**Current stable release:** [1.0.3](CHANGELOG.md#jec-cli-template-1.0.3)
  
 For a complete listing of release notes for all JEC CLI TEMPLATE update releases, see the [CHANGELOG](CHANGELOG.md) file. 
 

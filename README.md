@@ -1,5 +1,9 @@
 # JEC CLI TEMPLATE Project
 
+[![JEC version](https://img.shields.io/badge/JEC-1.0-%23ba00ff.svg)](http://jecproject.org)
+[![npm version](https://badge.fury.io/js/jec-cli-template.svg)](https://www.npmjs.com/package/jec-cli-template)
+[![Apache 2.0](https://img.shields.io/hexpm/l/plug.svg)](https://www.apache.org/licenses/LICENSE-2.0)
+
 JEC CLI TEMPLATE is a [JavaScript Enterprise Container][jec-url] project focused on the creation of JEC components from templates to improve JEC productivity.
 
 [![][jec-logo]][jec-url]
@@ -65,7 +69,7 @@ The documentation generator is [TypeDoc](http://typedoc.org/)
 
 ## Update Release Notes
 
-**Current stable release:** [1.0.3](CHANGELOG.md#jec-cli-template-1.0.3)
+**Current stable release:** [1.0.4](CHANGELOG.md#jec-cli-template-1.0.4)
  
 For a complete listing of release notes for all JEC CLI TEMPLATE update releases, see the [CHANGELOG](CHANGELOG.md) file. 
 

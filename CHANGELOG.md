@@ -1,5 +1,14 @@
 # JEC CLI TEMPLATE Project: Update Release Notes
 
+<a name="jec-cli-template-1.0.4"></a>
+## **1.0.4** (2018-08-02)
+
+### Bug Fixes
+
+### Features
+
+- Updating all dependencies
+
 <a name="jec-cli-template-1.0.3"></a>
 ## **1.0.3** (2018-06-09)
 

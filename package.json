@@ -26,9 +26,7 @@
     "url": "https://github.com/jec-project/jec-cli-template/issues"
   },
   "homepage": "https://github.com/jec-project/jec-cli-template#readme",
-  "dependencies": {
-    "npm": "^6.3.0"
-  },
+  "dependencies": {},
   "devDependencies": {
     "@types/mocha": "^5.2.5",
     "chai": "^4.1.2",
